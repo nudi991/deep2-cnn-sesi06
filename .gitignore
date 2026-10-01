@@ -1,0 +1,16 @@
+# Dataset
+data/
+
+# Python virtual environment
+.venv/
+
+# Python cache
+**pycache**/
+*.py[cod]
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
