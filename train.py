@@ -440,51 +440,51 @@ def main():
     datasetManager.downloadDataset()
     datasetManager.inspectDataset()
     datasetManager.checkImageFiles()
-    # datasetManager.splitDataset()
-    # datasetManager.createTransforms()
+    datasetManager.splitDataset()
+    datasetManager.createTransforms()
 
-    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # datasetManager.createDataLoaders()
+    datasetManager.createDataLoaders()
 
-    # images, labels = next(iter(datasetManager.trainLoader))
+    images, labels = next(iter(datasetManager.trainLoader))
 
-    # print("\n[DataLoader Check]")
-    # print(f"Image shape: {images.shape}")
-    # print(f"Label shape: {labels.shape}")
-    # print(f"Pixel range: {images.min().item()} - {images.max().item()}")
-    # print(f"Labels: {labels[:10].tolist()}")
+    print("\n[DataLoader Check]")
+    print(f"Image shape: {images.shape}")
+    print(f"Label shape: {labels.shape}")
+    print(f"Pixel range: {images.min().item()} - {images.max().item()}")
+    print(f"Labels: {labels[:10].tolist()}")
 
-    # model = SmallCNN().to(device)
-    # totalParameters = sum(parameter.numel() for parameter in model.parameters())
-    # print("\n[Model]")
-    # print(f"{model}")
-    # print(f"Total parameters: {totalParameters}")
+    model = SmallCNN().to(device)
+    totalParameters = sum(parameter.numel() for parameter in model.parameters())
+    print("\n[Model]")
+    print(f"{model}")
+    print(f"Total parameters: {totalParameters}")
 
-    # criterion = nn.BCEWithLogitsLoss()
-    # optimizer = torch.optim.Adam(model.parameters(), lr=learningRate)
+    criterion = nn.BCEWithLogitsLoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=learningRate)
 
-    # print("\n[Training Configuration]")
-    # print(f"Random seed: {seed}")
-    # print(f"Device: {device}")
-    # print(f"Batch size: {batchSize}")
-    # print(f"Learning rate: {learningRate}")
-    # print(f"Epochs: {epochs}")
-    # print("Loss: BCEWithLogitsLoss")
-    # print("Optimizer: Adam")
+    print("\n[Training Configuration]")
+    print(f"Random seed: {seed}")
+    print(f"Device: {device}")
+    print(f"Batch size: {batchSize}")
+    print(f"Learning rate: {learningRate}")
+    print(f"Epochs: {epochs}")
+    print("Loss: BCEWithLogitsLoss")
+    print("Optimizer: Adam")
 
-    # history, trainingTime = trainModel(model, datasetManager.trainLoader, datasetManager.validationLoader, criterion, optimizer, device, epochs)
+    history, trainingTime = trainModel(model, datasetManager.trainLoader, datasetManager.validationLoader, criterion, optimizer, device, epochs)
 
-    # plotTrainingCurve(history)
+    plotTrainingCurve(history)
 
-    # testLoss, testAccuracy = evaluateTest(model, datasetManager.testLoader, criterion, device)
+    testLoss, testAccuracy = evaluateTest(model, datasetManager.testLoader, criterion, device)
 
-    # confusionMatrix, precision, recall, f1 = evaluateMetrics(model, datasetManager.testLoader, device)
+    confusionMatrix, precision, recall, f1 = evaluateMetrics(model, datasetManager.testLoader, device)
 
-    # plotConfusionMatrix(confusionMatrix)
+    plotConfusionMatrix(confusionMatrix)
 
-    # misclassifiedImages = getMisclassifiedImages(model, datasetManager.testLoader, device)
-    # plotMisclassifiedImages(misclassifiedImages)
+    misclassifiedImages = getMisclassifiedImages(model, datasetManager.testLoader, device)
+    plotMisclassifiedImages(misclassifiedImages)
 
 if __name__ == "__main__":
     main()
