@@ -26,8 +26,9 @@ Pada proses pemeriksaan ditemukan 2 file gambar yang corrupt:
 
 * `Cat/666.jpg`
 * `Dog/11702.jpg`
+* `Dog/9041.jpg`
 
-Kedua file tersebut tidak digunakan dalam proses training, validation, maupun testing.
+Ketiga file tersebut tidak digunakan dalam proses training, validation, maupun testing.
 
 Setelah mengeluarkan file corrupt, terdapat 24.998 gambar valid.
 
@@ -37,7 +38,7 @@ Dataset dibagi secara stratified dengan random seed `42`:
 
 | Dataset    | Jumlah |
 | ---------- | -----: |
-| Train      | 17.498 |
+| Train      | 17.497 |
 | Validation |  3.750 |
 | Test       |  3.750 |
 
